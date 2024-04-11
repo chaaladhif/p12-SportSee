@@ -1,0 +1,10 @@
+.title {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.title__user {
+    color: #e60000;
+    font-weight: 600;
+    font-size: 2em;
+}

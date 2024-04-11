@@ -1,0 +1,14 @@
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.diagrams {
+    display: flex;
+    flex-direction: column;
+}
+.aside {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}

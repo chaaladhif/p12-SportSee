@@ -1,0 +1,28 @@
+.verticalNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #000;
+    width: 10%;
+    min-height: 768px;
+}
+.verticalIcon {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.navicon {
+    color: #ff0101;
+    background-color: #fff;
+
+    border-radius: 5px;
+    padding: 1em;
+}
+.navCopyright {
+    color: #fff;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-weight: 300;
+    font-size: 0.7em;
+}

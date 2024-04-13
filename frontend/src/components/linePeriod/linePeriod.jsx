@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./style.css";
 import {
     LineChart,
     Line,
@@ -8,23 +9,7 @@ import {
     Tooltip,
     Legend,
 } from "recharts";
-import { getUserAverageSessions } from "../../services/service.js";
-function LinePeriod({ userId }) {
-    const [SessionsData, setSessionsData] = useState([]);
-    //console.log("SessionsData:", SessionsData);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await getUserAverageSessions(userId);
-                setSessionsData(data);
-                // console.log("Data:", data);
-            } catch (error) {
-                console.error("data not found", error);
-            }
-        };
-
-        fetchData();
-    }, [userId]);
+function LinePeriod({ sessionData }) {
     //console.log(SessionsData);
     const formatDay = (dayIndex) => {
         // Fonction pour formater le jour de la semaine en lettre
@@ -36,14 +21,19 @@ function LinePeriod({ userId }) {
 
     return (
         <>
-            <h2>Durée moyenne des sessions</h2>
-            <LineChart width={500} height={300} data={SessionsData}>
+            {/*<h2>Durée moyenne des sessions</h2>*/}
+            <LineChart width={500} height={300} data={sessionData}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="day" tickFormatter={formatDay} />
+                <XAxis dataKey="day" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line dataKey="sessionLength" stroke="#000" />
+                <Line
+                    type="monotone"
+                    dataKey="sessionLength"
+                    stroke="#8884d8"
+                    activeDot={{ r: 8 }}
+                />
             </LineChart>
         </>
     );

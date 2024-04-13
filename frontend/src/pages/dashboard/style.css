@@ -3,9 +3,12 @@
     justify-content: space-between;
     align-items: center;
 }
-.diagrams {
+.diagramsColumn {
     display: flex;
     flex-direction: column;
+}
+.diagramsRow {
+    display: flex;
 }
 .aside {
     display: flex;

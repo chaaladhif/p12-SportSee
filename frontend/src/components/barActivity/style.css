@@ -1,5 +1,21 @@
-h2 {
+.alignLengend {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titleBar {
     color: #20253a;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 0.9em;
+}
+.tooltip-container {
+    background-color: #e60000;
+    width: 39px;
+    height: 63px;
+    color: #fff;
+    padding: 0.2em;
+}
+.tooltip-text {
+    font-size: 0.6em;
 }

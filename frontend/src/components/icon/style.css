@@ -2,7 +2,26 @@
     display: flex;
     align-items: center;
     gap: 1em;
+    margin-bottom: 4em;
 }
+
 .logo {
-    width: 5%;
+    width: 8%;
+    object-fit: cover;
+    border-radius: 10px;
+    padding: 1em;
+}
+.icon-text {
+    display: flex;
+    flex-direction: column;
+}
+.icon-textValue {
+    font-weight: 700;
+    color: #282d30;
+    font-size: 20px;
+}
+.icon-textTitle {
+    color: #74798c;
+    font-weight: 500;
+    font-size: 14px;
 }

@@ -1,22 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { getUser } from "../../services/service";
 import "./style.css";
-function Header({ userId }) {
-    const [userData, setUserData] = useState(null);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const data = await getUser(userId);
-                setUserData(data);
-            } catch (error) {
-                console.error("Data not found", error);
-            }
-        };
-
-        fetchData();
-    }, [userId]);
-
+function Header({ userData }) {
     return (
         <>
             <div className="title">
@@ -29,5 +13,4 @@ function Header({ userId }) {
         </>
     );
 }
-
 export default Header;

@@ -1,0 +1,25 @@
+.titleRadial {
+    position: absolute;
+    z-index: 1;
+    right: 45%;
+    color: #20253a;
+    font-weight: 700;
+    font-size: 15px;
+}
+.legendWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 5em;
+    right: 35%;
+}
+.score {
+    font-size: 20px;
+    font-weight: 700;
+}
+.description {
+    font-size: 18px;
+    text-align: center;
+}

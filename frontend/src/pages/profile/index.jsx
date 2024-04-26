@@ -1,30 +1,22 @@
-import React, { useState } from "react";
-import "./style.css";
+import React from "react";
 import { Link } from "react-router-dom";
-
+import "./style.css";
 function Profile() {
-    const [currentUser, setCurrentUser] = useState("");
-
-    const handleSwitchUser = (userId) => {
-        setCurrentUser(userId);
-    };
+    const userIds = ["12", "18"];
 
     return (
         <div className="profil">
-            <button onClick={() => handleSwitchUser(12)}>Carl</button>
-            <button onClick={() => handleSwitchUser(18)}>Cicilia</button>
+            <div className="button__Container">
+                {userIds.map((userId) => (
+                    <Link key={userId} to={`/`}>
+                        <button className="button">
+                            se connecter à la page de l'utilisateur {userId}
+                        </button>
+                    </Link>
+                ))}
+            </div>
         </div>
     );
 }
 
 export default Profile;
-{
-    /*<div>
-                <button>User 12</button>
-                <button>User 18</button>
-            </div>
-            <div>
-                <button>User Mocké 12</button>
-                <button>User Mocké 18</button>
-    </div>*/
-}

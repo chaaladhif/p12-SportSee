@@ -15,7 +15,8 @@ function App() {
                     <VerticalNavbar />
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
-                        <Route path="/user/:id" element={<Profile />} />
+
+                        <Route path="/user/:userId" element={<Profile />} />
                         <Route path="/Reglage" element={<Reglage />} />
                         <Route path="/Community" element={<Community />} />
                     </Routes>

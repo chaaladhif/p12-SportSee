@@ -5,7 +5,7 @@ import {
     Line,
     XAxis,
     YAxis,
-    CartesianGrid,
+    Rectangle,
     Tooltip,
     ResponsiveContainer,
 } from "recharts";
@@ -57,55 +57,54 @@ function LinePeriod({ sessionLength }) {
                 >
                     {/*OPACITY FADED SETTING */}
                     <defs>
-                        <linearGradient
-                            id="colorGradient"
-                            x1="0"
-                            y1="0"
-                            x2="0"
-                            y2="1"
-                        >
+                        <linearGradient id="colorUv">
                             <stop
                                 offset="5%"
-                                stopColor="#fff"
+                                stopColor="#ffffff"
                                 stopOpacity={0.45}
                             />
                             <stop
-                                offset="60%"
-                                stopColor="#fff"
+                                offset="50%"
+                                stopColor="#ffffff"
                                 stopOpacity={0.6}
                             />
                             <stop
                                 offset="100%"
-                                stopColor="#fff"
+                                stopColor="#ffffff"
                                 stopOpacity={0.9}
                             />
                         </linearGradient>
                     </defs>
                     <XAxis
-                        axisLine={false}
                         dataKey="day"
                         tickLine={false}
-                        stroke="#fff"
+                        axisLine={false}
+                        color="#fff"
                         tickFormatter={formatDay}
                         style={{
                             fontSize: "12px",
                             opacity: "0.66",
                             fill: "#fff",
                         }}
-                        color="#fff"
+                    />
+                    <Rectangle
+                        fill={"#000000"}
+                        fillOpacity="0.7"
+                        x={30} // Positionnez-le selon vos besoins
+                        y={0}
+                        width={250}
+                        height={250}
                     />
                     <YAxis domain={["dataMin - 10", "dataMax + 10"]} hide />
                     <Tooltip content={<CustomTooltip />} />
-
                     <Line
-                        // allowDataOverflow
-                        // includeHidden
+                        className="customLine"
                         type="natural"
                         dataKey="sessionLength"
-                        stroke="url(#colorGradient)"
+                        stroke="url(#colorUv)"
                         strokeOpacity={1} // OPACITY de la COURBE
                         strokeWidth={2}
-                        activeDot={{ r: 4, fill: "white" }}
+                        activeDot={{ r: 4, fill: "#fff" }}
                         dot={null}
                     />
                 </LineChart>

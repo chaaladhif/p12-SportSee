@@ -1,3 +1,20 @@
 .profil {
     margin: 2em auto;
 }
+.button__Container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.button {
+    border-radius: 10px;
+    border: none;
+    padding: 0.5em;
+    font-size: 1em;
+    transition: transform 0.5s; /* Ajoute une transition fluide */
+}
+.button:hover {
+    background-color: red;
+    color: #fff;
+    transform: scale(1.1); /* Agrandit le bouton de 10% au survol */
+}

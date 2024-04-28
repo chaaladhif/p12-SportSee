@@ -156,12 +156,12 @@ const USER_PERFORMANCE = [
     {
         userId: 18,
         data: [
-            { kind: "cardio", value: 200 },
-            { kind: "energy", value: 240 },
-            { kind: "endurance", value: 80 },
-            { kind: "strength", value: 80 },
-            { kind: "speed", value: 220 },
-            { kind: "intensity", value: 110 },
+            { kind: "Cardio", value: 200 },
+            { kind: "Energy", value: 240 },
+            { kind: "Endurance", value: 80 },
+            { kind: "Strength", value: 80 },
+            { kind: "Speed", value: 220 },
+            { kind: "Intensity", value: 110 },
         ],
     },
 ];

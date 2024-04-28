@@ -5,7 +5,6 @@ import {
     Line,
     XAxis,
     YAxis,
-    Rectangle,
     Tooltip,
     ResponsiveContainer,
 } from "recharts";
@@ -39,9 +38,21 @@ function LinePeriod({ sessionLength }) {
         }
         return null;
     };
+    function CustomCursor({ points }) {
+        return (
+            <rect
+                className="widget-sessions__cursor"
+                fill="#000000"
+                opacity={0.1}
+                x={points[0].x}
+                height="100%"
+            />
+        );
+    }
     return (
         <>
             <h2 className="titleLine">Durée moyenne des sessions</h2>
+
             <ResponsiveContainer width="99%" height={250}>
                 <LineChart
                     width={250}
@@ -55,22 +66,21 @@ function LinePeriod({ sessionLength }) {
                     }}
                     style={{ background: "#e60000", borderRadius: "5px" }}
                 >
-                    {/*OPACITY FADED SETTING */}
                     <defs>
                         <linearGradient id="colorUv">
                             <stop
                                 offset="5%"
-                                stopColor="#ffffff"
+                                stopColor="#fff"
                                 stopOpacity={0.45}
                             />
                             <stop
                                 offset="50%"
-                                stopColor="#ffffff"
+                                stopColor="#fff"
                                 stopOpacity={0.6}
                             />
                             <stop
                                 offset="100%"
-                                stopColor="#ffffff"
+                                stopColor="#fff"
                                 stopOpacity={0.9}
                             />
                         </linearGradient>
@@ -87,16 +97,12 @@ function LinePeriod({ sessionLength }) {
                             fill: "#fff",
                         }}
                     />
-                    <Rectangle
-                        fill={"#000000"}
-                        fillOpacity="0.7"
-                        x={30} // Positionnez-le selon vos besoins
-                        y={0}
-                        width={250}
-                        height={250}
-                    />
+
                     <YAxis domain={["dataMin - 10", "dataMax + 10"]} hide />
-                    <Tooltip content={<CustomTooltip />} />
+                    <Tooltip
+                        content={<CustomTooltip />}
+                        cursor={<CustomCursor />}
+                    />
                     <Line
                         className="customLine"
                         type="natural"
@@ -105,7 +111,7 @@ function LinePeriod({ sessionLength }) {
                         strokeOpacity={1} // OPACITY de la COURBE
                         strokeWidth={2}
                         activeDot={{ r: 4, fill: "#fff" }}
-                        dot={null}
+                        dot={false}
                     />
                 </LineChart>
             </ResponsiveContainer>

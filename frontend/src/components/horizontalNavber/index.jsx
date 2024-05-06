@@ -8,7 +8,7 @@ function HorizontalNavbar() {
             <nav className="horizontalNav">
                 <img className="navbar__logo" src={logo} alt="logo" />
 
-                <NavLink className="navlink" to="/">
+                <NavLink className="navlink" to="/user">
                     Accueil
                 </NavLink>
                 <NavLink className="navlink" to="/user">

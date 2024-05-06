@@ -17,33 +17,39 @@ import {
     getUserPerformance,
     getUserAverageSessions,
 } from "../../services/service";
+import { useParams } from "react-router-dom";
 
-function Dashboard() {
-    const [userId, setUserId] = useState(18);
+function Profile() {
+    const { id } = useParams();
+    const [userId, setUserId] = useState(id);
+    const [userData, setUserData] = useState(null);
     const [activityData, setActivityData] = useState([]);
     const [performanceData, setPerformanceData] = useState([]);
     const [sessionLengthData, setSessionData] = useState([]);
-    const [userData, setUserData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
+            setUserId(id);
             try {
+                const user = await getUser(userId);
                 const activity = await getUserActivity(userId);
                 const performance = await getUserPerformance(userId);
                 const sessionLength = await getUserAverageSessions(userId);
-                const user = await getUser(userId);
+                // console.log("Session length data:", sessionLength); // Ajoutez ceci pour voir les données de longueur de session
+                setUserData(user);
                 setActivityData(activity);
                 setPerformanceData(performance);
                 setSessionData(sessionLength);
-                setUserData(user);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         };
 
         fetchData();
-    }, [userId]);
-
+    });
+    /*if (!userId){
+    page erreur
+}*/
     const icons = [
         {
             logo: calorie,
@@ -76,7 +82,7 @@ function Dashboard() {
     ];
 
     return (
-        <div className="dashboard">
+        <div className="profil">
             <Header userData={userData} />
             <div className="row">
                 <div className="diagramsColumn">
@@ -104,4 +110,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default Profile;

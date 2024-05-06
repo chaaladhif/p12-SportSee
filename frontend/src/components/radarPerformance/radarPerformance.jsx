@@ -5,33 +5,11 @@ import {
     RadarChart,
     PolarGrid,
     PolarAngleAxis,
-    PolarRadiusAxis,
     ResponsiveContainer,
 } from "recharts";
-function customTick({ payload, x, y, textAnchor, stroke, radius }) {
-    return (
-        <g className="recharts-layer recharts-polar-angle-axis-tick">
-            <text
-                radius={radius}
-                stroke={stroke}
-                x={x}
-                y={y}
-                className="recharts-text recharts-polar-angle-axis-tick-value"
-                textAnchor={textAnchor}
-                fontSize={12}
-                fontWeight={500}
-                fill="#ffffff"
-                style={{ textTransform: "capitalize" }}
-            >
-                <tspan x={x} dy="0em">
-                    {payload.value}
-                </tspan>
-            </text>
-        </g>
-    );
-}
+
 function RadarPerformance({ performance }) {
-    const reversedPerformance = performance.slice().reverse();
+    //const reversedPerformance = performance.slice().reverse();
 
     return (
         <>
@@ -41,7 +19,7 @@ function RadarPerformance({ performance }) {
                     cy="50%"
                     outerRadius={80} // Reduire la taille du diagramme
                     width={200}
-                    data={reversedPerformance}
+                    data={performance}
                     style={{
                         background: "#282D30",
                         borderRadius: "5px",

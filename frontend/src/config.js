@@ -1,2 +1,2 @@
 // config.js
-export const isDataMocked = true;
+export let isDataMocked = true;

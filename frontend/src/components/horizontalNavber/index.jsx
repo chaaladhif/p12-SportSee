@@ -11,7 +11,7 @@ function HorizontalNavbar() {
                 <NavLink className="navlink" to="/">
                     Accueil
                 </NavLink>
-                <NavLink className="navlink" to="/user/:id">
+                <NavLink className="navlink" to="/user">
                     Profil
                 </NavLink>
                 <NavLink className="navlink" to="/Reglage">

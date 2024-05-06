@@ -4,7 +4,6 @@ import {
     RadialBarChart,
     RadialBar,
     Legend,
-    Tooltip,
     PolarAngleAxis,
     ResponsiveContainer,
 } from "recharts";

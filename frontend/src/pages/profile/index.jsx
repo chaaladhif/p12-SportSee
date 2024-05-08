@@ -4,8 +4,6 @@ import "./style.css";
 
 function Profile() {
     const userIds = ["12", "18"];
-    //const {userId}=useParams;
-
     return (
         <div className="profil">
             <h1>Bienvenu sur SportSee</h1>

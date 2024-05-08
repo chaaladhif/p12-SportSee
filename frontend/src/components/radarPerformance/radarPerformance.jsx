@@ -10,7 +10,10 @@ import {
 
 function RadarPerformance({ performance }) {
     //const reversedPerformance = performance.slice().reverse();
-
+    const kinds = performance.kind
+        ? Object.values(performance.kind).reverse()
+        : [];
+    //console.log(kinds);
     return (
         <>
             <ResponsiveContainer width="99%" height={250}>
@@ -19,7 +22,7 @@ function RadarPerformance({ performance }) {
                     cy="50%"
                     outerRadius={80} // Reduire la taille du diagramme
                     width={200}
-                    data={performance}
+                    data={performance.data}
                     style={{
                         background: "#282D30",
                         borderRadius: "5px",
@@ -29,7 +32,11 @@ function RadarPerformance({ performance }) {
                     {/* Supprimer les lignes */}
                     <PolarGrid radialLines={false} />
                     {/* Afficher uniquement les labels "kind" sans leurs valeurs */}
-                    <PolarAngleAxis dataKey="kind" tick={{ fill: "#fff" }} />
+                    <PolarAngleAxis
+                        tickFormatter={(index) => kinds[index]}
+                        tick={{ fill: "#fff" }}
+                        //key={performance.map((data, index) => index)}
+                    />
                     {/* Supprimer les valeurs de l'axe radial */}
                     {/* <PolarRadiusAxis tick={false} axisLine={false} />*/}
                     <Radar

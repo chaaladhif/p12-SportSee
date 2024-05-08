@@ -17,9 +17,9 @@ import {
     getUserPerformance,
     getUserAverageSessions,
 } from "../../services/service";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 
-function Profile() {
+function Home() {
     const { id } = useParams();
     const [userId, setUserId] = useState(id);
     const [userData, setUserData] = useState(null);
@@ -28,14 +28,19 @@ function Profile() {
     const [sessionLengthData, setSessionData] = useState([]);
 
     useEffect(() => {
+        if (!id || id === null) return <Navigate to="*" />;
+
         const fetchData = async () => {
             setUserId(id);
             try {
                 const user = await getUser(userId);
+                //console.log("user:", user);
                 const activity = await getUserActivity(userId);
+                //console.log("activity data:", activity);
                 const performance = await getUserPerformance(userId);
+                //console.log("performance data:", performance);
                 const sessionLength = await getUserAverageSessions(userId);
-                // console.log("Session length data:", sessionLength); // Ajoutez ceci pour voir les données de longueur de session
+                //console.log("Session length data:", sessionLength);
                 setUserData(user);
                 setActivityData(activity);
                 setPerformanceData(performance);
@@ -46,10 +51,8 @@ function Profile() {
         };
 
         fetchData();
-    });
-    /*if (!userId){
-    page erreur
-}*/
+    }, []);
+
     const icons = [
         {
             logo: calorie,
@@ -82,7 +85,7 @@ function Profile() {
     ];
 
     return (
-        <div className="profil">
+        <div className="home">
             <Header userData={userData} />
             <div className="row">
                 <div className="diagramsColumn">
@@ -94,9 +97,9 @@ function Profile() {
                     </div>
                 </div>
                 <div className="aside">
-                    {icons.map((icon, index) => (
+                    {icons.map((icon) => (
                         <Icon
-                            key={index}
+                            key={icon.title}
                             logo={icon.logo}
                             value={icon.keyData}
                             unit={icon.unit}
@@ -110,4 +113,4 @@ function Profile() {
     );
 }
 
-export default Profile;
+export default Home;

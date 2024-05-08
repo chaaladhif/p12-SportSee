@@ -8,7 +8,7 @@ import {
     ResponsiveContainer,
 } from "recharts";
 
-function RadialScore({ score }) {
+function RadialScore({ userId, score }) {
     const data = [{ name: "Score", value: score * 100 }];
     //console.log(data);
     // Calculer les angles de début et de fin en fonction du score
@@ -48,11 +48,11 @@ function RadialScore({ score }) {
                         fill="#FF0000"
                         cornerRadius={20} // Couleur de l'arc
                     />
-                    <PolarAngleAxis
+                    {/* <PolarAngleAxis
                         type="number"
                         domain={[0, 1]}
                         tick={false}
-                    />
+    />*/}
                 </RadialBarChart>
             </ResponsiveContainer>
         </>

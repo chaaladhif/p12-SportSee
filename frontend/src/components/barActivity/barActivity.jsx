@@ -37,7 +37,7 @@ function BarActivity({ sessions }) {
                     maxBarSize={10}
                     width={730}
                     height={200}
-                    data={sessions}
+                    data={sessions.sessions}
                     margin={{ top: -30, right: 0, left: 0, bottom: 10 }}
                 >
                     <CartesianGrid strokeDasharray="2" vertical={false} />

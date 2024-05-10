@@ -57,7 +57,7 @@ function LinePeriod({ sessionLength }) {
                 <LineChart
                     width={250}
                     height={250}
-                    data={sessionLength}
+                    data={sessionLength.sessions}
                     margin={{
                         top: 5,
                         right: 10,

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
-import construction from "../../assets/construction.jpg";
 function Community() {
     return (
         <div className="community">

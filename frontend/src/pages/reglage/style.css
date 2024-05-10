@@ -1,4 +1,16 @@
-.reglage {
+.community {
+    margin: 3em auto;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.community__link {
+    color: #e60000;
+    text-decoration: none;
+    font-weight: 700;
+}
+/*.reglage {
     display: flex;
     flex-direction: column;
     margin: 2em auto;
@@ -9,10 +21,10 @@ button {
     border: none;
     padding: 0.5em;
     font-size: 1em;
-    transition: transform 0.5s; /* Ajoute une transition fluide */
+    transition: transform 0.5s; 
 }
 button:hover {
     background-color: red;
     color: #fff;
-    transform: scale(1.1); /* Agrandit le bouton de 10% au survol */
-}
+    transform: scale(1.1); 
+}*/

@@ -28,7 +28,7 @@ function Home() {
     const [sessionLengthData, setSessionData] = useState([]);
 
     useEffect(() => {
-        if (!id || id === null) return <Navigate to="*" />;
+        if (!id) return <Navigate to="*" />;
 
         const fetchData = async () => {
             setUserId(id);

@@ -17,31 +17,33 @@ import {
     getUserPerformance,
     getUserAverageSessions,
 } from "../../services/service";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function Home() {
-    const { id } = useParams();
-    const [userId, setUserId] = useState(id);
-    const [userData, setUserData] = useState(null);
+    const { id } = useParams(); // Récupération de l'ID de l'utilisateur depuis les paramètres d'URL
+    const navigate = useNavigate();
+    const [userId, setUserId] = useState(id); // État local pour stocker l'ID de l'utilisateur
+    const [userData, setUserData] = useState(null); // État local pour stocker les données de l'utilisateur
     const [activityData, setActivityData] = useState([]);
     const [performanceData, setPerformanceData] = useState([]);
     const [sessionLengthData, setSessionData] = useState([]);
 
     useEffect(() => {
-        if (!id) return <Navigate to="*" />;
+        // Redirige si l'id est différent de 12 ou 18
+        if (userId !== "12" && userId !== "18") {
+            navigate("*");
+        }
 
         const fetchData = async () => {
-            setUserId(id);
+            setUserId(id); // Met à jour l'ID de l'utilisateur
             try {
+                // Récupère les données de l'utilisateur, d'activité, de performance
                 const user = await getUser(userId);
-                //console.log("user:", user);
                 const activity = await getUserActivity(userId);
-                //console.log("activity data:", activity);
                 const performance = await getUserPerformance(userId);
-                //console.log("performance data:", performance);
                 const sessionLength = await getUserAverageSessions(userId);
                 //console.log("Session length data:", sessionLength);
-                setUserData(user);
+                setUserData(user); // Met à jour les données de l'utilisateur
                 setActivityData(activity);
                 setPerformanceData(performance);
                 setSessionData(sessionLength);

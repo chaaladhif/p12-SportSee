@@ -94,7 +94,15 @@ function Home() {
                     <div className="diagramsRow">
                         <LinePeriod sessionLength={sessionLengthData} />
                         <RadarPerformance performance={performanceData} />
-                        <RadialScore score={userData ? userData.score : 0} />
+                        <RadialScore
+                            score={
+                                userData
+                                    ? userData.score
+                                        ? userData.score
+                                        : userData.todayScore
+                                    : 0
+                            }
+                        />
                     </div>
                 </div>
                 <div className="aside">

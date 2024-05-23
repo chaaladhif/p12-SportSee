@@ -8,12 +8,12 @@ import {
 } from "recharts";
 
 function RadialScore({ userId, score }) {
-     // les données pour le RadialBarChart avec la valeur du score multipliée par 100
+     // Les données pour le RadialBarChart avec la valeur du score multipliée par 100
      const data = [{ name: "Score", value: score * 100 }];
-     console.log(data);
      // Calculer les angles de début et de fin en fonction du score
      const startAngle = 90; // Angle de début
-     const endAngle = 90 + data[0].value; // Angle de fin
+     const endAngle = 90 + 360 * score; // Angle de fin proportionnel au score
+
      const RenderCustomizedLegend = () => {
           return (
                <div className="legendWrapper">
@@ -25,6 +25,7 @@ function RadialScore({ userId, score }) {
                </div>
           );
      };
+
      return (
           <>
                <h2 className="titleRadial">Score</h2>
@@ -40,19 +41,13 @@ function RadialScore({ userId, score }) {
                          style={{ background: "#FBFBFB", borderRadius: "5px" }}
                     >
                          <Legend content={<RenderCustomizedLegend />} />
-
                          <RadialBar
                               name="Score"
                               barSize={10}
                               dataKey="value"
                               fill="#FF0000"
-                              cornerRadius={20} // Couleur de l'arc
+                              cornerRadius={20}
                          />
-                         {/* <PolarAngleAxis
-                        type="number"
-                        domain={[0, 1]}
-                        tick={false}
-    />*/}
                     </RadialBarChart>
                </ResponsiveContainer>
           </>
